@@ -146,6 +146,8 @@ function App() {
         powerSeats: form.elements.powerSeats.checked,
         powerMirrors: form.elements.powerMirrors.checked,
         cruiseControl: form.elements.cruiseControl.checked,
+
+        
       }
       await axios.post(`https://car-api-lama.herokuapp.com/api/cars`, carBody, {
         headers: {
