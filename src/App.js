@@ -19,18 +19,18 @@ function App() {
   const navigate = useNavigate()
   //------------------------------get cars-------------------------------//
   const getCars = async () => {
-    const response = await axios.get("http://localhost:3020/api/cars")
+    const response = await axios.get("https://car-api-lama.herokuapp.com/api/cars")
     setCars(response.data)
   }
   //--------------------------------get makes-----------------------------//
   const getMakes = async () => {
-    const response = await axios.get("http://localhost:3020/api/makes")
+    const response = await axios.get("https://car-api-lama.herokuapp.com/api/makes")
     setMakes(response.data)
   }
   //--------------------------------get types-----------------------------//
 
   const getTypes = async () => {
-    const response = await axios.get("http://localhost:3020/api/types")
+    const response = await axios.get("https://car-api-lama.herokuapp.com/api/types")
     setTypes(response.data)
   }
   useEffect(() => {
@@ -41,7 +41,7 @@ function App() {
   //--------------------------------delete cars-----------------------------//
   const deleteCras = async carId => {
     try {
-      await axios.delete(`http://localhost:3020/api/cars/${carId}`, {
+      await axios.delete(`https://car-api-lama.herokuapp.com/api/cars/${carId}`, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -63,7 +63,7 @@ function App() {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }
-      const response = await axios.post("http://localhost:3020/api/auth/login/admin", adminBody)
+      const response = await axios.post("https://car-api-lama.herokuapp.com/api/auth/login/admin", adminBody)
       localStorage.tokenDashboardCars = response.data
       toast.success("login success")
       navigate("/cars")
@@ -103,7 +103,7 @@ function App() {
         powerMirrors: form.elements.powerMirrors.checked,
         cruiseControl: form.elements.cruiseControl.checked,
       }
-      await axios.put(`http://localhost:3020/api/cars/${carId}`, carBody, {
+      await axios.put(`https://car-api-lama.herokuapp.com/api/cars/${carId}`, carBody, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -147,7 +147,7 @@ function App() {
         powerMirrors: form.elements.powerMirrors.checked,
         cruiseControl: form.elements.cruiseControl.checked,
       }
-      await axios.post(`http://localhost:3020/api/cars`, carBody, {
+      await axios.post(`https://car-api-lama.herokuapp.com/api/cars`, carBody, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -177,7 +177,7 @@ function App() {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }
-      await axios.post(`http://localhost:3020/api/auth/add-admin`, adminBody, {
+      await axios.post(`https://car-api-lama.herokuapp.com/api/auth/add-admin`, adminBody, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -199,7 +199,7 @@ function App() {
         name: form.elements.name.value,
         image: form.elements.image.value,
       }
-      await axios.post(`http://localhost:3020/api/makes`, makeBody, {
+      await axios.post(`https://car-api-lama.herokuapp.com/api/makes`, makeBody, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -222,7 +222,7 @@ function App() {
         name: form.elements.name.value,
         image: form.elements.image.value,
       }
-      await axios.put(`http://localhost:3020/api/makes/${carId}`, makeBody, {
+      await axios.put(`https://car-api-lama.herokuapp.com/api/makes/${carId}`, makeBody, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -238,7 +238,7 @@ function App() {
 
   const deleteMake = async makeId => {
     try {
-      await axios.delete(`http://localhost:3020/api/makes/${makeId}`, {
+      await axios.delete(`https://car-api-lama.herokuapp.com/api/makes/${makeId}`, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -261,7 +261,7 @@ function App() {
         name: form.elements.name.value,
         image: form.elements.image.value,
       }
-      await axios.post(`http://localhost:3020/api/types`, typeBody, {
+      await axios.post(`https://car-api-lama.herokuapp.com/api/types`, typeBody, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -284,7 +284,7 @@ function App() {
         name: form.elements.name.value,
         image: form.elements.image.value,
       }
-      await axios.put(`http://localhost:3020/api/types/${typeId}`, typeBody, {
+      await axios.put(`https://car-api-lama.herokuapp.com/api/types/${typeId}`, typeBody, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
@@ -300,7 +300,7 @@ function App() {
 
   const deleteType = async typeId => {
     try {
-      await axios.delete(`http://localhost:3020/api/types/${typeId}`, {
+      await axios.delete(`https://car-api-lama.herokuapp.com/api/types/${typeId}`, {
         headers: {
           Authorization: localStorage.tokenDashboardCars,
         },
